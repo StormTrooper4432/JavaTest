@@ -16,3 +16,4 @@ Remember, this is only a benchmark so please do NOT cheat as it only hinders our
 | `Q6_Tricky.java` | Autoboxing, interning, null, equality |
 
 **Grading:** Compile & run to check predictions. For WRITE sections, paste your code into the file and verify it compiles + passes.
+Use `javac {fileName}.java` and `java -ea {ClassName}` in terminal to enable assertions.

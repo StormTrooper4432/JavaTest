@@ -17,16 +17,16 @@ public class Q2_Inheritance {
 
     public static void main(String[] args) {
         Motor m1 = new Falcon();
-        System.out.print("1: "); m1.run();
+        System.out.print("1: "); m1.run(); //1: Falcon spinning
 
         Motor m2 = new Kraken();
-        System.out.print("2: "); m2.run();
+        System.out.print("2: "); m2.run(); //2: Falcon go brrr
 
         Falcon m3 = new Kraken();
-        System.out.println("3: " + m3.name());
+        System.out.println("3: " + m3.name()); //3: Falcon
 
         Motor m4 = new Kraken();
-        System.out.println("4: " + (m4 instanceof Falcon));
+        System.out.println("4: " + (m4 instanceof Falcon)); //4: Falcon@93fce923
 
         // ── WRITE ──
         // Create a class "Neo" that extends Motor such that:
@@ -37,12 +37,20 @@ public class Q2_Inheritance {
         //
         // Uncomment the test below when done.
 
-        // Neo n = new Neo(6000);
-        // System.out.print("5: "); n.run();  // should print: Neo spinning at 6000 RPM
-        // assert n.name().equals("Neo");
-        // assert n instanceof Motor;
-        // System.out.println("Neo ok");
+        Neo n = new Neo(6000);
+        System.out.print("5: "); n.run();  // should print: Neo spinning at 6000 RPM
+        assert n.name().equals("Neo");
+        assert n instanceof Motor;
+        System.out.println("Neo ok");
     }
 
     // TODO: write the Neo class here
+    static class Neo extends Motor {
+        private int rpm;
+        public Neo(int rpm) {
+            this.rpm = rpm;
+        }
+        public String name() { return "Neo"; }
+        public void run() { System.out.println(name() + " spinning at " + rpm + "RPM"); }
+    }
 }

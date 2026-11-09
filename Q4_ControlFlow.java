@@ -9,17 +9,17 @@ public class Q4_ControlFlow {
 
     public static void main(String[] args) {
         // Q4a: which "eval" lines actually print?
-        System.out.println("1:");
+        System.out.println("1:"); //1:
         if (false && log("A")) {}
         if (true || log("B")) {}
-        if (false || log("C")) {}
+        if (false || log("C")) {} //  eval C
 
         // Q4b: switch fallthrough
-        System.out.println("2:");
+        System.out.println("2:"); //2: 
         int val = 2;
         switch (val) {
             case 1: System.out.println("  one");
-            case 2: System.out.println("  two");
+            case 2: System.out.println("  two"); // two
             case 3: System.out.println("  three");
             default: System.out.println("  default");
         }
@@ -31,15 +31,15 @@ public class Q4_ControlFlow {
             if (i > 7) break;
             sum += i;
         }
-        System.out.println("3: " + sum);
+        System.out.println("3: " + sum); //3: 19
 
         // Q4d: post-increment in expression
         int n = 5;
         int result = n++ + ++n;
-        System.out.println("4: " + result + " " + n);
+        System.out.println("4: " + result + " " + n); //4: 13 7
 
         // Q4e
-        System.out.println("5: " + (true ? "yes" : "no") + (1 > 2 ? "!" : "?"));
+        System.out.println("5: " + (true ? "yes" : "no") + (1 > 2 ? "!" : "?")); //5: yes?
 
         // ── WRITE ──
         // Implement fizzBuzz(int n) that returns:
@@ -62,7 +62,11 @@ public class Q4_ControlFlow {
 
     // TODO: implement with a switch expression
     static String fizzBuzz(int n) {
-        // your code here
-        return "";
+        return switch (n % 15) {
+            case 0 -> "FizzBuzz";
+            case 3, 6, 9, 12 -> "Fizz";
+            case 5, 10 -> "Buzz";
+            default -> String.valueOf(n);
+        };
     }
 }

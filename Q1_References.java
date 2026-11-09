@@ -13,23 +13,23 @@ public class Q1_References {
     public static void main(String[] args) {
         int a = 5;
         addOne(a);
-        System.out.println("1: " + a);
+        System.out.println("1: " + a); //1: 5
 
         int[] b = {5};
         addOne(b);
-        System.out.println("2: " + b[0]);
+        System.out.println("2: " + b[0]); //2: [6]
 
         replace(b);
-        System.out.println("3: " + b[0]);
+        System.out.println("3: " + b[0]); //3: [6]
 
         String s = "hello";
         upperCase(s);
-        System.out.println("4: " + s);
+        System.out.println("4: " + s); //4: HELLO
 
         int[] c = {1, 2, 3};
         int[] d = c;
         d[1] = 99;
-        System.out.println("5: " + Arrays.toString(c));
+        System.out.println("5: " + Arrays.toString(c)); //5: [1, 99, 3]
 
         // ── WRITE ──
         // Implement swap() so the two assertions pass.
@@ -51,11 +51,15 @@ public class Q1_References {
 
     // TODO: implement
     static void swap(int[] pair) {
-        // your code here
+        int temp = pair[0];
+        pair[0] = pair[1];
+        pair[1] = temp;
     }
 
     // TODO: implement
     static void swapStrings(String[] arr) {
-        // your code here
+        String temp = arr[0];
+        arr[0] = arr[1];
+        arr[1] = temp;
     }
 }

@@ -11,24 +11,24 @@ public class Q5_Lambdas {
     public static void main(String[] args) {
         int multiplier = 3;
         IntUnaryOperator triple = x -> x * multiplier;
-        System.out.println("1: " + triple.applyAsInt(7));
-        // Q: if you uncomment the next line, does it compile? why?
+        System.out.println("1: " + triple.applyAsInt(7)); //1: 21
+        // Q: if you uncomment the next line, does it compile? why? it will compile because it's just setting a new value for multiplier
         // multiplier = 4;
 
         Runnable[] tasks = new Runnable[3];
         for (int i = 0; i < 3; i++) {
             final int idx = i;
-            tasks[i] = () -> System.out.print(idx);
+            tasks[i] = () -> System.out.print(idx); // 0 1 2
         }
-        System.out.print("2: ");
-        for (Runnable r : tasks) r.run();
-        System.out.println();
+        System.out.print("2: "); //2: 
+        for (Runnable r : tasks) r.run(); //0 1 2
+        System.out.println(); // 
 
-        // Q: what if you removed "final" from idx? does it still compile?
+        // Q: what if you removed "final" from idx? does it still compile? yes, it should compile
 
         List<String> motors = Arrays.asList("Falcon", "Neo", "Kraken", "Vortex");
         motors.sort((a, b) -> a.length() - b.length());
-        System.out.println("3: " + motors);
+        System.out.println("3: " + motors); //3: Neo Falcon Kraken Vortex
 
         // ── WRITE ──
         // 1) Write a method "applyToAll" that takes a List<Integer> and a
@@ -60,7 +60,9 @@ public class Q5_Lambdas {
 
     // TODO
     static void applyToAll(List<Integer> list, UnaryOperator<Integer> op) {
-        // your code here
+        for (int i = 0; i < list.size(); i++) {
+            // i literally do not know how to do this
+        }
     }
 
     // TODO
@@ -69,3 +71,4 @@ public class Q5_Lambdas {
         return x -> x;
     }
 }
+//how tf do lambdas work :sob:
